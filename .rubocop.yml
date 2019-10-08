@@ -1,0 +1,54 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+Rails:
+  Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/AsciiComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/WordArray:
+  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/NumericPredicate:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+Metrics/LineLength:
+  Max: 160
+Metrics/MethodLength:
+  Max: 25
+  ExcludedMethods:
+  - 'permitted_attributes'
+Metrics/ClassLength:
+  Max: 160
+
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+  - '_'
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
