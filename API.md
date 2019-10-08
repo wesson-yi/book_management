@@ -42,14 +42,15 @@ Token 需要通过 http header 的 `X-AUTH-TOKEN` 发送。
 ## 创建用户
 POST /users
 ``` ruby
-{
+user: {
   name: 'username',
   age: 26,
   gender: 'male',
   ID_number: '411684199211103432',
   mobile: '15136167907',
   email: 'wesson.yi@gmail.com',
-  balance: 1_000
+  balance: 1_000,
+  password: '0000'
 }
 ```
 < 201

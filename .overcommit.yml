@@ -40,7 +40,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
-    command: ['bin/bundle', 'exec', 'rubocop']
+    command: ['bundle', 'exec', 'rubocop']
     include:
     - '**/*.rb'
     - '**/*.json.jbuilder'
