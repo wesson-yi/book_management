@@ -1,4 +1,5 @@
 # Model design
+文章地址：https://documenter.getpostman.com/view/2853886/SVtTyoJa
 
 ``` ruby
 User <---- LibraryRecord ----> Book
@@ -10,10 +11,11 @@ User <---- LibraryRecord ----> Book
 | age       | cost                                            | title       |
 | gender    | deadline                                        | author      |
 | ID_number | finish_at                                       | description |
-| mobile    |                                                 | available   |
+| mobile    | created_at                                      | available   |
 | email     |                                                 | borrowed    |
 | balance   |                                                 |             |
 | admin     |                                                 |             |
+| password  |                                                 |             |
 
 
 # API design
@@ -28,16 +30,16 @@ post /deals/return
 get /books/:id
 get /books/:book_id/income
 ```
-
-## 客户端错误
+## API 描述
+GET /
+< 200
 ```ruby
-# 一般有以下几种情况：
-# Http status code 400, 401, 403, 404, 422 格式都是：
-{ code: 'returned_error', message: 'error message' }
+{
+    title: '图书管理系统 API',
+    version: 'v1.0-preview',
+    doc: "https://documenter.getpostman.com/view/2853886/SVtTyoJa"
+}
 ```
-
-## Auth Token
-Token 需要通过 http header 的 `X-AUTH-TOKEN` 发送。
 
 ## 创建用户
 POST /users
@@ -76,7 +78,7 @@ GET /users/:id
       status: "returned",
       created_at: "2019-10-09T09:27:26.193Z",
       finish_at: "2019-10-09T09:31:12.413Z",
-      cost: 0.000261827943287037,    
+      cost: 0.000261827943287037,
       title: "The Cricket on the Hearth",
       author: "Laine Langosh MD",
       ISBN: '978-3-16-148410-0'
@@ -118,7 +120,7 @@ GET /books/:id
   available: 50,
   borrowed: 40,
   libray_records: [
-    { 
+    {
       id: 10,
       status: 'initial',
       created_at: '2019-10-09T09:27:35.913Z',

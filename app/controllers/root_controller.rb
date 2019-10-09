@@ -3,7 +3,7 @@ class RootController < ActionController::API
     render json: {
       title: '图书管理系统 API',
       version: 'v1.0-preview',
-      doc: ''
+      doc: 'https://documenter.getpostman.com/view/2853886/SVtTyoJa'
     }
   end
 
