@@ -33,7 +33,7 @@ get /books/:id/income
 ```ruby
 # 一般有以下几种情况：
 # Http status code 400, 401, 403, 404, 422 格式都是：
-{ error_code: 10001, message: 'error message' }
+{ code: 'returned_error', message: 'error message' }
 ```
 
 ## Auth Token
@@ -73,8 +73,13 @@ GET /users/:id
   balance: 500,
   borrow_books: [
     {
-      ISBN: '978-3-16-148410-0',
-      name: '飘'
+      status: "returned",
+      created_at: "2019-10-09T09:27:26.193Z",
+      finish_at: "2019-10-09T09:31:12.413Z",
+      cost: 0.000261827943287037,    
+      title: "The Cricket on the Hearth",
+      author: "Laine Langosh MD",
+      ISBN: '978-3-16-148410-0'
     }
   ]
 }
@@ -112,11 +117,15 @@ GET /books/:id
   description: '美国南北战争前夕',
   available: 50,
   borrowed: 40,
-  libray_record: [
-    {
-      username: 'username',
-      status: '续借',
-      created_at: 'datetime'
+  libray_records: [
+    { 
+      id: 10,
+      status: 'initial',
+      created_at: '2019-10-09T09:27:35.913Z',
+      finish_at: null,
+      name: 'username',
+      gender: 'male',
+      email: 'wesson.yi@gamil.com'
     }
   ]
 }
