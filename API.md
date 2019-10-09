@@ -54,14 +54,22 @@ user: {
 }
 ```
 < 201
+```ruby
+{
+    id: 3
+}
+```
+
 
 ## 查看用户
 GET /users/:id
 < 200
+
 ```ruby
 {
   id: 1,
   name: 'username',
+  gender: 'male',
   balance: 500,
   borrow_books: [
     {

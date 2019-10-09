@@ -9,11 +9,12 @@
 # }
 
 class UsersController < ApplicationController
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def create
     @user = User.create!(user_params)
-    render json: @user, status: :created
   end
 
   private
