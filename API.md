@@ -7,11 +7,11 @@ User <---- LibraryRecord ----> Book
 | User      | LibraryRecord            | Book        |
 | --------- | ------------------------ | ----------- |
 | name      | status[借阅，续借、结束] | ISBN        |
-| age       | cost                     | name        |
+| age       | cost                     | title       |
 | gender    | deadline                 | author      |
 | ID_number | finish_at                | description |
 | mobile    |                          | available   |
-| email     |                          | load        |
+| email     |                          | borrowed    |
 | balance   |                          |             |
 | admin     |                          |             |
 
@@ -105,10 +105,13 @@ GET /books/:id
 < 200
 ```ruby
 {
+  id: 1,
   ISBN: '978-3-16-148410-0',
-  name: '飘',
+  title: '飘',
+  author: '玛格丽特',
+  description: '美国南北战争前夕',
   available: 50,
-  load: 40,
+  borrowed: 40,
   libray_record: [
     {
       username: 'username',
@@ -117,7 +120,6 @@ GET /books/:id
     }
   ]
 }
-
 ```
 ## 查看某书收益
 GET /books/:id/income

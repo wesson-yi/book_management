@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_131317) do
+ActiveRecord::Schema.define(version: 2019_10_09_032104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "ISBN", null: false, comment: "国际标准书号"
+    t.string "title", null: false, comment: "名称"
+    t.string "author", null: false, comment: "作者姓名"
+    t.text "description", comment: "简介"
+    t.integer "available", null: false, comment: "库存数目"
+    t.integer "borrowed", default: 0, null: false, comment: "外借数目"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false, comment: "姓名"
