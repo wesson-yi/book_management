@@ -4,8 +4,9 @@ class DealsController < ApplicationController
   def borrow
     # TODO: validate
     # 借阅一本对应一条记录
-    record_params = { book: @book, status: :initial, deadline: @book.lease_period }
+    record_params = { book: @book, deadline: @book.lease_period }
     @user.library_records.create!(record_params)
+
     render plain: nil, status: :created
   end
 
@@ -15,6 +16,7 @@ class DealsController < ApplicationController
     record.update!(status: :returned, finish_at: Time.current, cost: record.total_cost)
     @user.balance -= record.total_cost
     @user.save!
+
     render plain: nil, status: :created
   end
 

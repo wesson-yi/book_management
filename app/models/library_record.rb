@@ -22,7 +22,9 @@
 class LibraryRecord < ApplicationRecord
   validates :status, :deadline, presence: true
   validates :status, inclusion: { in: ['initial', 'renew', 'returned'] }
-  validates :cost, numericality: { other_than: 0 }
+  validates :cost, numericality: { greater_than_or_equal_to: 0 }
+
+  after_initialize :set_default_values
 
   belongs_to :user
   belongs_to :book
@@ -32,5 +34,12 @@ class LibraryRecord < ApplicationRecord
 
   def total_cost
     (Time.current - created_at) / 60 / 60 / 24 * COST_PER_DAY
+  end
+
+  private
+
+  def set_default_values
+    self.status = :initial
+    self.cost = 0
   end
 end
