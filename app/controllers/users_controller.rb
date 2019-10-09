@@ -11,6 +11,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @records = @user.library_records.includes(:book)
   end
 
   def create

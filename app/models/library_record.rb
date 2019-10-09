@@ -43,7 +43,7 @@ class LibraryRecord < ApplicationRecord
   private
 
   def set_default_values
-    self.status = :initial
-    self.cost = 0
+    status.nil? && self.status = :initial
+    cost.nil? && self.cost = 0
   end
 end
