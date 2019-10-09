@@ -1,8 +1,8 @@
 # Model design
-文章地址：https://documenter.getpostman.com/view/2853886/SVtTyoJa
+文档地址：https://documenter.getpostman.com/view/2853886/SVtTyoJa
 
 ``` ruby
-User <---- LibraryRecord ----> Book
+User <-- LibraryRecord --> Book
 ```
 
 | User      | LibraryRecord                                   | Book        |
@@ -31,8 +31,9 @@ get /books/:id
 get /books/:book_id/income
 ```
 ## API 描述
-GET /
+GET /  
 < 200
+
 ```ruby
 {
     title: '图书管理系统 API',
@@ -64,7 +65,7 @@ user: {
 
 
 ## 查看用户
-GET /users/:id
+GET /users/:id  
 < 200
 
 ```ruby
@@ -108,8 +109,9 @@ deal: {
 < 201
 
 ## 查看某书
-GET /books/:id
+GET /books/:id  
 < 200
+
 ```ruby
 {
   id: 1,
@@ -134,7 +136,7 @@ GET /books/:id
 ```
 ## 查看某书收益
 GET /books/:book_id/income
-```json
+```ruby
 {
   start_at: '2019-10-08 10:37:25 UTC',
   end_at: '2019-10-09 10:37:25 UTC'
