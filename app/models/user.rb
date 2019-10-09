@@ -22,7 +22,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :name, presence: true, length: { maximum: 50 }
   validates :ID_number, :mobile, presence: true, uniqueness: true
-  validates :balance, presence: true
+  validates :balance, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :age, numericality: { greater_than_or_equal_to: 0 }
 
   has_many :library_records, dependent: :destroy
   has_many :books, through: :library_records

@@ -22,6 +22,7 @@
 class LibraryRecord < ApplicationRecord
   validates :status, :deadline, presence: true
   validates :status, inclusion: { in: ['initial', 'renew', 'returned'] }
+  validates :cost, numericality: { other_than: 0 }
 
   belongs_to :user
   belongs_to :book

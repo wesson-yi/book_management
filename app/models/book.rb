@@ -15,6 +15,7 @@
 
 class Book < ApplicationRecord
   validates :ISBN, :title, :author, :available, :borrowed, presence: true
+  validates :available, :borrowed, numericality: { greater_than_or_equal_to: 0 }
 
   has_many :library_records, dependent: :destroy
   has_many :users, through: :library_records
