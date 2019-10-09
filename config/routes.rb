@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     resources :books, only: [:show] do
       get 'income' => 'books#income'
     end
+    resources :deals, only: [] do
+      collection do
+        post 'borrow' => 'deals#borrow'
+        post 'return' => 'deals#return'
+      end
+    end
   end
 end

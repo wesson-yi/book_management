@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_032104) do
+ActiveRecord::Schema.define(version: 2019_10_09_045549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2019_10_09_032104) do
     t.integer "borrowed", default: 0, null: false, comment: "外借数目"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "library_records", force: :cascade do |t|
+    t.integer "user_id", null: false, comment: "借阅者 id"
+    t.integer "book_id", null: false, comment: "书籍 id"
+    t.string "status", default: "initial", null: false, comment: "借阅所处状态"
+    t.datetime "deadline", null: false, comment: "应归还日期"
+    t.datetime "finish_at", comment: "实际归还日期"
+    t.float "cost", comment: "此次借阅的花费"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_library_records_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_library_records_on_user_id_and_book_id"
+    t.index ["user_id"], name: "index_library_records_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

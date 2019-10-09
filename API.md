@@ -4,16 +4,16 @@
 User <---- LibraryRecord ----> Book
 ```
 
-| User      | LibraryRecord            | Book        |
-| --------- | ------------------------ | ----------- |
-| name      | status[借阅，续借、结束] | ISBN        |
-| age       | cost                     | title       |
-| gender    | deadline                 | author      |
-| ID_number | finish_at                | description |
-| mobile    |                          | available   |
-| email     |                          | borrowed    |
-| balance   |                          |             |
-| admin     |                          |             |
+| User      | LibraryRecord                                   | Book        |
+| --------- | ----------------------------------------------- | ----------- |
+| name      | status[借阅 initial，续借 renew、结束 returned] | ISBN        |
+| age       | cost                                            | title       |
+| gender    | deadline                                        | author      |
+| ID_number | finish_at                                       | description |
+| mobile    |                                                 | available   |
+| email     |                                                 | borrowed    |
+| balance   |                                                 |             |
+| admin     |                                                 |             |
 
 
 # API design
@@ -83,7 +83,7 @@ GET /users/:id
 ## 借书
 POST /deals/borrow
 ```ruby
-{
+deal: {
   user_id: 1,
   book_id: 1
 }
@@ -93,7 +93,7 @@ POST /deals/borrow
 ## 还书
 POST /deals/return
 ```ruby
-{
+deal: {
   user_id: 1,
   book_id: 1
 }
