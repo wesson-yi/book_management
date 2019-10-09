@@ -29,6 +29,10 @@ class LibraryRecord < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
+  scope :borrowed, -> {
+    where.not(status: :returned)
+  }
+
   # 价格策略，暂定续借费用不变
   COST_PER_DAY = 0.1
 

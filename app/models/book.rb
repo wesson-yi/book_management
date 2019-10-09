@@ -13,6 +13,7 @@
 #  updated_at          :datetime         not null
 #
 
+# TODO: Book 之上有 BookCategory 需要抽象
 class Book < ApplicationRecord
   validates :ISBN, :title, :author, :available, :borrowed, presence: true
   validates :available, :borrowed, numericality: { greater_than_or_equal_to: 0 }
