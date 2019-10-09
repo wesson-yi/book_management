@@ -26,7 +26,7 @@ post /deals/borrow
 post /deals/return
 
 get /books/:id
-get /books/:id/income
+get /books/:book_id/income
 ```
 
 ## 客户端错误
@@ -131,11 +131,11 @@ GET /books/:id
 }
 ```
 ## 查看某书收益
-GET /books/:id/income
+GET /books/:book_id/income
 ```json
 {
-  start_time: '2018-01-25T00:00:00+08:00',
-  end_time: '2025-01-25T00:00:00+08:00'
+  start_at: '2019-10-08 10:37:25 UTC',
+  end_at: '2019-10-09 10:37:25 UTC'
 }
 ```
 < 200

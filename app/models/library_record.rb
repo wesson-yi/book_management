@@ -32,12 +32,19 @@ class LibraryRecord < ApplicationRecord
   scope :borrowed, -> {
     where.not(status: :returned)
   }
+  scope :returned, -> {
+    where(status: :returned)
+  }
 
   # 价格策略，暂定续借费用不变
   COST_PER_DAY = 0.1
 
   def total_cost
     (Time.current - created_at) / 60 / 60 / 24 * COST_PER_DAY
+  end
+
+  def self.finished_between(start_at, end_at)
+    where('finish_at >= ? and finish_at < ?', start_at, end_at)
   end
 
   private
