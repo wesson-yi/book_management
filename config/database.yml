@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: book_management_demo_production
-  username: book_management_demo
-  password: <%= ENV['BOOK_MANAGEMENT_DEMO_DATABASE_PASSWORD'] %>
+  username: deployer
+  password: <%= ENV['NOVEL_SPIDER_DATABASE_PASSWORD'] %>
