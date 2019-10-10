@@ -1,13 +1,3 @@
-# user: {
-#   name: 'username',
-#   age: 26,
-#   gender: 'male',
-#   ID_number: '411684199211103432',
-#   mobile: '15136167907',
-#   email: 'wesson.yi@gmail.com',
-#   balance: 1_000
-# }
-
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
